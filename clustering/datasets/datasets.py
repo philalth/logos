@@ -4,22 +4,66 @@ from sklearn.datasets import make_circles, make_moons, make_blobs
 
 
 def load_two_circles():
+    """Loads the two circles dataset, a simple toy dataset to visualize
+    clustering and classification algorithms.
+
+    Returns
+    -------
+    X : ndarray of shape (1500, 2)
+        The generated samples.
+
+    y : ndarray of shape (1500,)
+        The integer labels (0 or 1) for class membership of each sample.
+    """
     return make_circles(n_samples=1500, factor=.5, noise=.05, shuffle=False)
 
 
 def load_two_moons():
+    """Loads the two moons dataset, a simple toy dataset to visualize
+    clustering and classification algorithms.
+
+    Returns
+    -------
+    X : ndarray of shape (1500, 2)
+        The generated samples.
+
+    y : ndarray of shape (1500,)
+        The integer labels (0 or 1) for class membership of each sample.
+    """
     return make_moons(n_samples=1500, noise=.05, shuffle=False)
 
 
 def load_anisotropic_blobs():
-    datapoints, labels = make_blobs(n_samples=1500, random_state=170, shuffle=False)
+    """Generate anisotropic Gaussian blobs for clustering.
+
+    Returns
+    -------
+    X : ndarray of shape (1500, 2)
+        The generated samples.
+
+    y : ndarray of shape (1500,)
+        The integer labels for cluster membership of each sample.
+    """
+    datapoints, labels = make_blobs(n_samples=1500, random_state=170,
+                                    shuffle=False)
     transformation = [[0.6, -0.6], [-0.4, 0.8]]
     datapoints = numpy.dot(datapoints, transformation)
     return datapoints, labels
 
 
 def load_varied_variances_blobs():
-    return make_blobs(n_samples=1500, cluster_std=[1.0, 2.5, 0.5], random_state=170)
+    """Generate isotropic Gaussian blobs with varied variances for clustering.
+
+    Returns
+    -------
+    X : ndarray of shape (1500, 2)
+        The generated samples.
+
+    y : ndarray of shape (1500,)
+        The integer labels for cluster membership of each sample.
+    """
+    return make_blobs(n_samples=1500, cluster_std=[1.0, 2.5, 0.5],
+                      random_state=170)
 
 
 def load_pulsar():

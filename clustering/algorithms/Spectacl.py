@@ -25,7 +25,8 @@ class Spectacl:
         else:
             self.clusterer = clusterer
 
-        # Predefine some properties, which will be updated, when the `fit` method has been called.
+        # Predefine some properties, which will be updated, when the `fit`
+        # method has been called.
         self.Lambda = None
         self.V = None
         self.labels_ = None
@@ -40,13 +41,18 @@ class Spectacl:
         """
         supported_affinities = ["radius_neighbors", "precomputed"]
         if self.affinity not in supported_affinities:
-            raise ValueError("Illegal affinity supplied: {0}".format(supported_affinities))
+            raise ValueError(
+                "Illegal affinity supplied: {0}".format(supported_affinities))
         if self.affinity == "radius_neighbors" and self.epsilon < 0.0:
-            raise ValueError("Illegal epsilon radius specified: {0}".format(str(self.epsilon)))
+            raise ValueError("Illegal epsilon radius specified: {0}".format(
+                str(self.epsilon)))
         if self.n_clusters < 2:
-            raise ValueError("Illegal number of clusters specified: {0}".format(str(self.n_clusters)))
+            raise ValueError(
+                "Illegal number of clusters specified: {0}".format(
+                    str(self.n_clusters)))
         if not callable(self.clusterer.fit_predict):
-            raise ValueError("The provided base clusterer has no fit_predict method, which may be called.")
+            raise ValueError(
+                "The provided base clusterer has no fit_predict method, which may be called.")
 
     def fit(self, X):
         """

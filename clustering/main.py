@@ -6,7 +6,7 @@ from sklearn.cluster import KMeans, DBSCAN, SpectralClustering, AgglomerativeClu
 from sklearn.datasets import fetch_olivetti_faces
 from sklearn.metrics.pairwise import euclidean_distances
 
-from algorithms.Spectacl import Spectacl
+from clustering.algorithms.Spectacl import Spectacl
 from plotting import figures
 from utils import heuristics
 from utils.data_utils import undirected_neighbors_graph

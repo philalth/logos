@@ -15,7 +15,7 @@ def show_matrix(matrix, filename='matrix'):
     pyplot.show()
 
 
-def show_clustering(data, clustering, filename='clustering'):
+def show_clustering(data, clustering, filename='logos'):
     pyplot.xticks([])
     pyplot.yticks([])
     pyplot.axis('equal')

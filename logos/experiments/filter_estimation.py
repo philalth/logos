@@ -25,7 +25,7 @@ with warnings.catch_warnings():
     warnings.simplefilter('ignore', numpy.ComplexWarning)
     euclidean_distance_log_matrix = numpy.array(matrix_logarithm(euclidean_distance_matrix), dtype=float)
 
-# Spectral clustering with log matrix
+# Spectral logos with log matrix
 log_spectral = SpectralClustering(n_clusters=n_clusters, affinity='precomputed')
 log_spectral.fit(euclidean_distance_log_matrix)
 log_spectral_clustering = log_spectral.labels_
@@ -40,7 +40,7 @@ for filter_value in filter_values:
     with warnings.catch_warnings():
         warnings.simplefilter('ignore', UserWarning)
 
-        # Spectral clustering with threshold log matrix
+        # Spectral logos with threshold log matrix
         log_spectral_rounded = SpectralClustering(n_clusters=n_clusters, affinity='precomputed')
         log_spectral_rounded.fit(euclidean_distance_log_filter_matrix)
         log_spectral_rounded_clustering = log_spectral_rounded.labels_

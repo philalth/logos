@@ -5,7 +5,7 @@ from sklearn.datasets import make_circles, make_moons, make_blobs
 
 def load_two_circles():
     """Loads the two circles dataset, a simple toy dataset to visualize
-    clustering and classification algorithms.
+    logos and classification algorithms.
 
     Returns
     -------
@@ -20,7 +20,7 @@ def load_two_circles():
 
 def load_two_moons():
     """Loads the two moons dataset, a simple toy dataset to visualize
-    clustering and classification algorithms.
+    logos and classification algorithms.
 
     Returns
     -------
@@ -34,7 +34,7 @@ def load_two_moons():
 
 
 def load_anisotropic_blobs():
-    """Generate anisotropic Gaussian blobs for clustering.
+    """Generate anisotropic Gaussian blobs for logos.
 
     Returns
     -------
@@ -52,7 +52,7 @@ def load_anisotropic_blobs():
 
 
 def load_varied_variances_blobs():
-    """Generate isotropic Gaussian blobs with varied variances for clustering.
+    """Generate isotropic Gaussian blobs with varied variances for logos.
 
     Returns
     -------

@@ -6,7 +6,7 @@ from sklearn.cluster import KMeans, DBSCAN, SpectralClustering, AgglomerativeClu
 from sklearn.datasets import fetch_olivetti_faces
 from sklearn.metrics.pairwise import euclidean_distances
 
-from clustering.algorithms.Spectacl import Spectacl
+from logos.algorithms.Spectacl import Spectacl
 from plotting import figures
 from utils import heuristics
 from utils.data_utils import undirected_neighbors_graph
@@ -53,7 +53,7 @@ def main(show=True):
         [[1 / (1 + x) if x != 0 else 0 for x in column] for column in weighted_undirected_knn_matrix])
 
     # ============
-    # Compute clustering
+    # Compute logos
     # ============
 
     # k-Means
@@ -69,47 +69,47 @@ def main(show=True):
     with warnings.catch_warnings():
         warnings.simplefilter('ignore', UserWarning)
 
-        # Spectral clustering
+        # Spectral logos
         spectral = SpectralClustering(n_clusters=n_clusters, affinity='nearest_neighbors')
         spectral.fit(data)
         spectral_clustering = spectral.labels_
 
-        # Spectral clustering with log matrix
+        # Spectral logos with log matrix
         log_spectral = SpectralClustering(n_clusters=n_clusters, affinity='precomputed')
         log_spectral.fit(euclidean_distance_log_matrix)
         log_spectral_clustering = log_spectral.labels_
 
-        # Spectral clustering with threshold log matrix
+        # Spectral logos with threshold log matrix
         log_spectral_rounded = SpectralClustering(n_clusters=n_clusters, affinity='precomputed')
         log_spectral_rounded.fit(euclidean_distance_log_filter_matrix)
         log_spectral_rounded_clustering = log_spectral_rounded.labels_
 
-        # Spectral clustering with unweighted undirected kNN matrix
+        # Spectral logos with unweighted undirected kNN matrix
         unweighted_snn_spectral = SpectralClustering(n_clusters=n_clusters, affinity='precomputed')
         unweighted_snn_spectral.fit(unweighted_undirected_knn_matrix)
         unweighted_snn_spectral_clustering = unweighted_snn_spectral.labels_
 
-        # Spectral clustering with log unweighted undirected kNN matrix
+        # Spectral logos with log unweighted undirected kNN matrix
         log_unweighted_snn_spectral = SpectralClustering(n_clusters=n_clusters, affinity='precomputed')
         log_unweighted_snn_spectral.fit(unweighted_undirected_knn_log_matrix)
         log_unweighted_snn_spectral_clustering = log_unweighted_snn_spectral.labels_
 
-        # Spectral clustering with weighted undirected kNN matrix
+        # Spectral logos with weighted undirected kNN matrix
         weighted_snn_spectral = SpectralClustering(n_clusters=n_clusters, affinity='precomputed')
         weighted_snn_spectral.fit(weighted_undirected_knn_matrix)
         weighted_snn_spectral_clustering = weighted_snn_spectral.labels_
 
-        # Spectral clustering with log weighted undirected kNN matrix
+        # Spectral logos with log weighted undirected kNN matrix
         log_weighted_snn_spectral = SpectralClustering(n_clusters=n_clusters, affinity='precomputed')
         log_weighted_snn_spectral.fit(weighted_undirected_knn_log_matrix)
         log_weighted_snn_spectral_clustering = log_weighted_snn_spectral.labels_
 
-    # Hierarchical clustering with weighted undirected kNN matrix
+    # Hierarchical logos with weighted undirected kNN matrix
     weighted_snn_agglom = AgglomerativeClustering(n_clusters=n_clusters, affinity='precomputed', linkage='single')
     weighted_snn_agglom.fit(1 / (1 + weighted_undirected_knn_matrix))
     weighted_snn_agglom_clustering = weighted_snn_agglom.labels_
 
-    # Hierarchical clustering with weighted undirected kNN matrix
+    # Hierarchical logos with weighted undirected kNN matrix
     log_agglom = AgglomerativeClustering(n_clusters=n_clusters, affinity='precomputed', linkage='single')
     log_agglom.fit(euclidean_distance_log_matrix)
     log_agglom_clustering = log_agglom.labels_

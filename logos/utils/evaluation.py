@@ -11,8 +11,9 @@ def nmi_scores(results, ground_truth_labels):
             warnings.simplefilter('ignore', FutureWarning)
             nmi = normalized_mutual_info_score(ground_truth_labels, result)
 
-        # current version of sklearn's NMI implementation is bugged if all labels are the same i.e. all
-        # datapoints are labeled as one cluster, in this case the NMI exceeds its defined range of [0, 1]
+        # current version of sklearn's NMI implementation is broken if all
+        # labels are the same i.e. all datapoints are labeled as one cluster,
+        # in this case the NMI exceeds its defined range of [0, 1]
         if nmi < 0 or nmi > 1:
             nmi = 0.0
 

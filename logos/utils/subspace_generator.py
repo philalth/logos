@@ -4,7 +4,7 @@ from sklearn.datasets import make_blobs
 
 def make_subspace_blobs(n_samples, n_features, cluster_std, cluster_subspaces, center_box=(-30, 30)):
     """
-    Generate isotropic Gaussian subspace blobs for clustering.
+    Generate isotropic Gaussian subspace blobs for logos.
 
     Parameters
     ----------

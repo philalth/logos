@@ -53,13 +53,13 @@ def dbscan_eps_heuristic(data, k):
 
 def spectacl_eps_heuristic(data):
     """
-    Heuristic used for the eps parameter of the SpectACl clustering algorithm
+    Heuristic used for the eps parameter of the SpectACl logos algorithm
     taken from the original paper. The value is computed such that 90% of the
     data have at least 10 neighbours.
 
     References:
-    Hess, Sibylle, et al. "The SpectACl of nonconvex clustering: A spectral
-    approach to density-based clustering." Proceedings of the AAAI Conference
+    Hess, Sibylle, et al. "The SpectACl of nonconvex logos: A spectral
+    approach to density-based logos." Proceedings of the AAAI Conference
     on Artificial Intelligence. Vol. 33. 2019.
 
     Parameters

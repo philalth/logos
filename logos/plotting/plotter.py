@@ -57,7 +57,7 @@ def plot_data_and_matrices(data, distance_matrix, distance_matrix_log, descripti
 
 def plot_clustering(algorithms, data):
     """
-    Plots clustering results. If the data has more than two dimensions
+    Plots logos results. If the data has more than two dimensions
     it will be projected to the first two dimensions.
 
     Parameters

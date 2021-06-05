@@ -2,14 +2,16 @@ import numpy
 from sklearn.datasets import make_blobs
 
 
-def make_subspace_blobs(n_samples, n_features, cluster_std, cluster_subspaces, center_box=(-30, 30)):
+def make_subspace_blobs(n_samples, n_features, cluster_std, cluster_subspaces,
+                        center_box=(-30, 30)):
     """
     Generate isotropic Gaussian subspace blobs for logos.
 
     Parameters
     ----------
     n_samples: array-like
-        Each element of the sequence indicates the number of samples per cluster.
+        Each element of the sequence indicates the number of samples per
+        cluster.
 
     n_features: int
         The number of total features for each sample.
@@ -18,10 +20,12 @@ def make_subspace_blobs(n_samples, n_features, cluster_std, cluster_subspaces, c
         The standard deviation of the clusters.
 
     center_box: pair of floats (min, max)
-        The bounding box for each cluster center when centers are generated at random.
+        The bounding box for each cluster center when centers are generated at
+        random.
 
     cluster_subspaces:  array-like
-        The dimensions of the subspace in which the clusters should be generated.
+        The dimensions of the subspace in which the clusters should be
+        generated.
 
     Returns
     -------

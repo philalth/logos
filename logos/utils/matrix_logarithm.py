@@ -24,13 +24,14 @@ def matrix_logarithm(a):
     eigenvalue_matrix = numpy.diag(eigenvalues)
     eigenvalue_matrix_logarithm = _diagonal_matrix_logarithm(eigenvalue_matrix)
 
-    return eigenvector_matrix @ eigenvalue_matrix_logarithm @ numpy.transpose(eigenvector_matrix)
+    return eigenvector_matrix @ eigenvalue_matrix_logarithm\
+        @ numpy.transpose(eigenvector_matrix)
 
 
 def _diagonal_matrix_logarithm(a):
     """
     Computes the natural logarithm of a diagonal matrix by calculating
-    the elementwise logarithm for each diagonal entry. If one of the
+    the element wise logarithm for each diagonal entry. If one of the
     entries is less than zero the result will be a complex number.
 
     Parameters

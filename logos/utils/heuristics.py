@@ -21,7 +21,7 @@ def _sorted_knn_distances(data, k):
     """
     neighbours = NearestNeighbors(n_neighbors=k).fit(data)
 
-    distances, indices = neighbours.kneighbors(data)
+    distances, _ = neighbours.kneighbors(data)
     distances = numpy.sort(distances, axis=0)
     distances = distances[:, 1]
 

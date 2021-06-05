@@ -24,19 +24,30 @@ def load_arff(path):
 
 
 def add_noise(data, percentage):
-    """
+    """Adds uniformly distributed noise to a given dataset.
 
-    @param data: data as a tuple of (datapoints, labels)
-    @param percentage: percentage compared to the total size of the data of the number of noise to be added
-    @return: (datapoints, labels) as tuple with noise points and labels added
+    Parameters
+    ----------
+    data: Tuple
+        Data as a tuple of (datapoints, labels).
+    percentage: float
+        Percentage of noise to be added.
+
+    Returns
+    -------
+    datapoints : ndarray
+        The original datapoints with noise added.
+
+    labels : ndarray of shape
+        The original labels with noise added.
     """
     datapoints, labels = data
     n_noise = int(len(datapoints) * percentage)
 
-    noise = numpy.random.uniform(-50, 50, size=(n_noise, 2))
+    noise_points = numpy.random.uniform(-50, 50, size=(n_noise, 2))
 
-    datapoints = numpy.concatenate([datapoints, noise])
-    labels = numpy.concatenate([labels, [-1] * len(noise)])
+    datapoints = numpy.concatenate([datapoints, noise_points])
+    labels = numpy.concatenate([labels, [-1] * len(noise_points)])
 
     return datapoints, labels
 
